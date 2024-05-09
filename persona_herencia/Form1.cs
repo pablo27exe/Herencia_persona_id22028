@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,7 +46,7 @@ namespace persona_herencia
 
         private void label2_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -141,28 +141,28 @@ namespace persona_herencia
             lArea.Visible = false;
             lCarrera.Visible = false;
             lSemestre.Visible = false;
-            tbArea.Visible=false;
+            tbArea.Visible = false;
         }
         private void guardar_Click(object sender, EventArgs e)
         {
-                // Verifica si algún TextBox está vacío
-                if (string.IsNullOrEmpty(tbNombre.Text) ||
-                    string.IsNullOrEmpty(tbFecha.Text) ||
-                    string.IsNullOrEmpty(tbEdad.Text) ||
-                    string.IsNullOrEmpty(tbId.Text) ||
-                    string.IsNullOrEmpty(tbCarrera.Text) ||
-                    (alumno.Checked && string.IsNullOrEmpty(tbArea.Text)) || // Si es un alumno, verifica el TextBox del área
-                    (docente.Checked && string.IsNullOrEmpty(tbSueldo.Text))) // Si es un docente, verifica el TextBox del sueldo
-                {
-                    // Muestra un MessageBox de advertencia si algún campo está vacío
-                    MessageBox.Show("Por favor, complete todos los campos antes de guardar.", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    // Muestra un MessageBox de éxito indicando que los datos han sido guardados
-                    MessageBox.Show("Los datos han sido guardados.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            // Verifica si algún TextBox está vacío
+            if (string.IsNullOrEmpty(tbNombre.Text) ||
+                string.IsNullOrEmpty(tbFecha.Text) ||
+                string.IsNullOrEmpty(tbEdad.Text) ||
+                string.IsNullOrEmpty(tbId.Text) ||
+                string.IsNullOrEmpty(tbCarrera.Text) ||
+                (alumno.Checked && string.IsNullOrEmpty(tbArea.Text)) || // Si es un alumno, verifica el TextBox del área
+                (docente.Checked && string.IsNullOrEmpty(tbSueldo.Text))) // Si es un docente, verifica el TextBox del sueldo
+            {
+                // Muestra un MessageBox de advertencia si algún campo está vacío
+                MessageBox.Show("Por favor, complete todos los campos antes de guardar.", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                // Muestra un MessageBox de éxito indicando que los datos han sido guardados
+                MessageBox.Show("Los datos han sido guardados.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         private void tbNombre_TextChanged(object sender, EventArgs e)
         {
@@ -187,6 +187,94 @@ namespace persona_herencia
         private void tbCarrera_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void mostrarInformacion_Click(object sender, EventArgs e)
+        {
+            // Verifica si el radio button de Alumno está seleccionado
+            if (alumno.Checked)
+            {
+                // Crea una instancia de la clase Alumno y asignar los valores de los TextBox
+                Alumno alumno = new Alumno();
+                alumno.Nombre = tbNombre.Text;
+                alumno.Fecha = tbFecha.Text;
+                alumno.Edad = tbEdad.Text;
+                alumno.Id = tbId.Text;
+                alumno.Carrera = tbCarrera.Text;
+                alumno.Semestre = tbArea.Text;
+
+                // Muestra información del alumno
+                MostrarInformacion(alumno);
+            }
+            // Verifica si el radio button de Empleado está seleccionado
+            else if (empleado.Checked)
+            {
+                // Crea una instancia de la clase Empleado y asignar los valores de los TextBox
+                Empleado empleado = new Empleado();
+                empleado.Nombre = tbNombre.Text;
+                empleado.Fecha = tbFecha.Text;
+                empleado.Edad = tbEdad.Text;
+                empleado.Id = tbId.Text;
+                empleado.Puesto = tbCarrera.Text;
+                empleado.Area = tbArea.Text;
+                empleado.Sueldo = tbSueldo.Text;
+
+                // Muestra información del empleado
+                MostrarInformacion(empleado);
+            }
+            // Verifica si el radio button de Docente está seleccionado
+            else if (docente.Checked)
+            {
+                // Crea una instancia de la clase Docente y asignar los valores de los TextBox
+                Docente docente = new Docente();
+                docente.Nombre = tbNombre.Text;
+                docente.Fecha = tbFecha.Text;
+                docente.Edad = tbEdad.Text;
+                docente.Id = tbId.Text;
+                docente.Materia = tbCarrera.Text;
+                docente.Area = tbArea.Text;
+                docente.Sueldo = tbSueldo.Text;
+
+                // Muestra información del docente
+                MostrarInformacion(docente);
+            }
+        }
+
+        // Método para mostrar la información de una persona
+        private void MostrarInformacion(Persona persona)
+        {
+            // Inicialización de un StringBuilder para construir el mensaje
+            StringBuilder mensaje = new StringBuilder();
+
+            // Agregar los detalles comunes a todas las personas
+            mensaje.AppendLine("Nombre: " + persona.Nombre);
+            mensaje.AppendLine("Fecha de Nacimiento: " + persona.Fecha);
+            mensaje.AppendLine("Edad: " + persona.Edad);
+            mensaje.AppendLine("ID: " + persona.Id);
+
+            // Verificar el tipo de persona y agregar detalles específicos
+            if (persona is Alumno)
+            {
+                Alumno alumno = (Alumno)persona;
+                mensaje.AppendLine("Carrera: " + alumno.Carrera);
+                mensaje.AppendLine("Semestre: " + alumno.Semestre);
+            }
+            else if (persona is Empleado)
+            {
+                Empleado empleado = (Empleado)persona;
+                mensaje.AppendLine("Puesto: " + empleado.Puesto);
+                mensaje.AppendLine("Área: " + empleado.Area);
+                mensaje.AppendLine("Sueldo: " + empleado.Sueldo);
+            }
+            else if (persona is Docente)
+            {
+                Docente docente = (Docente)persona;
+                mensaje.AppendLine("Materia: " + docente.Materia);
+                mensaje.AppendLine("Sueldo: " + docente.Sueldo);
+            }
+
+            // Mostrar el mensaje en un MessageBox
+            MessageBox.Show(mensaje.ToString(), "Información de Persona", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
