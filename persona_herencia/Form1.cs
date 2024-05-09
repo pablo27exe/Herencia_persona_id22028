@@ -72,6 +72,7 @@ namespace persona_herencia
             tbId.Clear();
             tbCarrera.Clear();
             tbSueldo.Clear();
+            tbArea.Clear();
         }
 
         private void Salir_Click(object sender, EventArgs e)
@@ -238,6 +239,14 @@ namespace persona_herencia
                 // Muestra información del docente
                 MostrarInformacion(docente);
             }
+            else
+            {
+                Persona persona = new Persona();
+                persona.Nombre = tbNombre.Text;
+                persona.Fecha = tbFecha.Text;
+                persona.Edad = tbEdad.Text;
+                MostrarInformacion(persona);
+            }
         }
 
         // Método para mostrar la información de una persona
@@ -245,23 +254,25 @@ namespace persona_herencia
         {
             // Inicialización de un StringBuilder para construir el mensaje
             StringBuilder mensaje = new StringBuilder();
-
-            // Agregar los detalles comunes a todas las personas
-            mensaje.AppendLine("Nombre: " + persona.Nombre);
-            mensaje.AppendLine("Fecha de Nacimiento: " + persona.Fecha);
-            mensaje.AppendLine("Edad: " + persona.Edad);
-            mensaje.AppendLine("ID: " + persona.Id);
-
             // Verificar el tipo de persona y agregar detalles específicos
             if (persona is Alumno)
             {
                 Alumno alumno = (Alumno)persona;
+                mensaje.AppendLine("Nombre: " + alumno.Nombre);
+                mensaje.AppendLine("Fecha de Nacimiento: " + alumno.Fecha);
+                mensaje.AppendLine("Edad: " + alumno.Edad);
+                mensaje.AppendLine("Matricula: " + alumno.Id);
                 mensaje.AppendLine("Carrera: " + alumno.Carrera);
                 mensaje.AppendLine("Semestre: " + alumno.Semestre);
             }
             else if (persona is Empleado)
             {
                 Empleado empleado = (Empleado)persona;
+                // Agregar los detalles comunes a todas las personas
+                mensaje.AppendLine("Nombre: " + empleado.Nombre);
+                mensaje.AppendLine("Fecha de Nacimiento: " + empleado.Fecha);
+                mensaje.AppendLine("Edad: " + empleado.Edad);
+                mensaje.AppendLine("ID: " + empleado.Id);
                 mensaje.AppendLine("Puesto: " + empleado.Puesto);
                 mensaje.AppendLine("Área: " + empleado.Area);
                 mensaje.AppendLine("Sueldo: " + empleado.Sueldo);
@@ -269,8 +280,19 @@ namespace persona_herencia
             else if (persona is Docente)
             {
                 Docente docente = (Docente)persona;
+                // Agregar los detalles comunes a todas las personas
+                mensaje.AppendLine("Nombre: " + docente.Nombre);
+                mensaje.AppendLine("Fecha de Nacimiento: " + docente.Fecha);
+                mensaje.AppendLine("Edad: " + docente.Edad);
+                mensaje.AppendLine("ID: " + docente.Id);
                 mensaje.AppendLine("Materia: " + docente.Materia);
                 mensaje.AppendLine("Sueldo: " + docente.Sueldo);
+            }
+            else
+            {
+                mensaje.AppendLine("Nombre: " + persona.Nombre);
+                mensaje.AppendLine("Fecha de Nacimiento: " + persona.Fecha);
+                mensaje.AppendLine("Edad: " + persona.Edad);
             }
 
             // Mostrar el mensaje en un MessageBox
