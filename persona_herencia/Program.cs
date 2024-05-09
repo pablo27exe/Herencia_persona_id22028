@@ -13,7 +13,6 @@ namespace persona_herencia
         protected string tbNombre;
         protected string tbFecha;
         protected string tbEdad;
-        protected string tbId;
         //atributos
         //metodos
         //colocar todos los comentarios necesarios para exlicar
@@ -35,16 +34,12 @@ namespace persona_herencia
             get { return tbEdad; }//se obtiene el valor de la caja de texto
             set { tbEdad = value; }//se guarda en memoria
         }
-        public string Id
-        {
-            get { return tbId; }//se obtiene el valor de la caja de texto
-            set { tbId = value; }//se guarda en memoria
-        }
     }
     class Alumno : Persona //clase hija alumno
     {
         protected string tbArea;
         protected string tbCarrera;
+        protected string tbId;
 
         public string Semestre
         {
@@ -56,12 +51,18 @@ namespace persona_herencia
             get { return tbCarrera; }//se obtiene el valor de la caja de texto
             set { tbCarrera = value; }//se guarda en memoria
         }
+        public string Id
+        {
+            get { return tbId; }//se obtiene el valor de la caja de texto
+            set { tbId = value; }//se guarda en memoria
+        }
     }
     class Empleado : Persona //clase hija
     {
         protected string tbSueldo;
         protected string tbArea;
         protected string tbCarrera;
+        protected string tbId;
         public string Sueldo
         {
             get { return tbSueldo; }//se obtiene el valor de la caja de texto
@@ -77,6 +78,11 @@ namespace persona_herencia
             get { return tbCarrera; }
             set { tbCarrera = value; }
         }
+        public string Id
+        {
+            get { return tbId; }//se obtiene el valor de la caja de texto
+            set { tbId = value; }//se guarda en memoria
+        }
     }
 
     class Docente : Persona //clase Hija
@@ -84,6 +90,7 @@ namespace persona_herencia
         protected  string tbSueldo;
         protected string tbCarrera;
         protected string tbArea;
+        protected string tbId;
         public string Sueldo
         {
             get { return tbSueldo; }//se obtiene el valor de la caja de texto
@@ -98,6 +105,11 @@ namespace persona_herencia
         {
             get { return tbArea; }
             set { tbArea = value; }
+        }
+        public string Id
+        {
+            get { return tbId; }//se obtiene el valor de la caja de texto
+            set { tbId = value; }//se guarda en memoria
         }
     }
     static class Program
