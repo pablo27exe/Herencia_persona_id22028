@@ -1,4 +1,4 @@
-﻿namespace persona_herencia
+namespace persona_herencia
 {
     partial class Form1
     {
@@ -35,10 +35,12 @@
             this.alumno = new System.Windows.Forms.RadioButton();
             this.empleado = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.mostrarInformacion = new System.Windows.Forms.Button();
             this.lArea = new System.Windows.Forms.Label();
             this.tbArea = new System.Windows.Forms.TextBox();
             this.lSemestre = new System.Windows.Forms.Label();
             this.lMateria = new System.Windows.Forms.Label();
+            this.lCarrera = new System.Windows.Forms.Label();
             this.lDni = new System.Windows.Forms.Label();
             this.Salir = new System.Windows.Forms.Button();
             this.limpiar = new System.Windows.Forms.Button();
@@ -55,7 +57,6 @@
             this.lFecNac = new System.Windows.Forms.Label();
             this.lNombre = new System.Windows.Forms.Label();
             this.lAge = new System.Windows.Forms.Label();
-            this.lCarrera = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -116,6 +117,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.mostrarInformacion);
             this.groupBox2.Controls.Add(this.lArea);
             this.groupBox2.Controls.Add(this.tbArea);
             this.groupBox2.Controls.Add(this.lSemestre);
@@ -142,6 +144,16 @@
             this.groupBox2.Size = new System.Drawing.Size(552, 313);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            // 
+            // mostrarInformacion
+            // 
+            this.mostrarInformacion.Location = new System.Drawing.Point(11, 262);
+            this.mostrarInformacion.Name = "mostrarInformacion";
+            this.mostrarInformacion.Size = new System.Drawing.Size(83, 35);
+            this.mostrarInformacion.TabIndex = 35;
+            this.mostrarInformacion.Text = "VER";
+            this.mostrarInformacion.UseVisualStyleBackColor = true;
+            this.mostrarInformacion.Click += new System.EventHandler(this.mostrarInformacion_Click);
             // 
             // lArea
             // 
@@ -186,6 +198,17 @@
             this.lMateria.Text = "MATERIA";
             this.lMateria.Visible = false;
             this.lMateria.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // lCarrera
+            // 
+            this.lCarrera.AutoSize = true;
+            this.lCarrera.Location = new System.Drawing.Point(227, 152);
+            this.lCarrera.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lCarrera.Name = "lCarrera";
+            this.lCarrera.Size = new System.Drawing.Size(73, 16);
+            this.lCarrera.TabIndex = 30;
+            this.lCarrera.Text = "CARRERA";
+            this.lCarrera.Visible = false;
             // 
             // lDni
             // 
@@ -360,17 +383,6 @@
             this.lAge.Visible = false;
             this.lAge.Click += new System.EventHandler(this.label1_Click);
             // 
-            // lCarrera
-            // 
-            this.lCarrera.AutoSize = true;
-            this.lCarrera.Location = new System.Drawing.Point(227, 152);
-            this.lCarrera.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lCarrera.Name = "lCarrera";
-            this.lCarrera.Size = new System.Drawing.Size(73, 16);
-            this.lCarrera.TabIndex = 30;
-            this.lCarrera.Text = "CARRERA";
-            this.lCarrera.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -419,6 +431,6 @@
         private System.Windows.Forms.Label lSemestre;
         private System.Windows.Forms.Label lArea;
         private System.Windows.Forms.Label lCarrera;
+        private System.Windows.Forms.Button mostrarInformacion;
     }
 }
-
