@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -160,8 +161,57 @@ namespace persona_herencia
             }
             else
             {
-                // Muestra un MessageBox de éxito indicando que los datos han sido guardados
-                MessageBox.Show("Los datos han sido guardados.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            /*
+                try
+                {
+                    using (StreamWriter writer = new StreamWriter("datos_guardados.txt"))
+                    {
+                        if (alumno.Checked)
+                        {
+                            writer.WriteLine("Nombre: " + tbNombre.Text);
+                            writer.WriteLine("Fecha: " + tbFecha.Text);
+                            writer.WriteLine("Edad: " + tbEdad.Text);
+                            writer.WriteLine("Matricula: " + tbId.Text);
+                            writer.WriteLine("Carrera: " + tbCarrera.Text);
+                            writer.WriteLine("Semestre" + tbArea.Text);
+                        }
+                        else if (docente.Checked)
+                        {
+                            writer.WriteLine("Nombre: " + tbNombre.Text);
+                            writer.WriteLine("Fecha: " + tbFecha.Text);
+                            writer.WriteLine("Edad: " + tbEdad.Text);
+                            writer.WriteLine("ID: " + tbId.Text);
+                            writer.WriteLine("Materia " + tbCarrera.Text);
+                            writer.WriteLine("Área: " + tbArea.Text);
+                            writer.WriteLine("Sueldo:" + tbSueldo.Text);
+                        }
+                        else if (empleado.Checked)
+                        {
+                            writer.WriteLine("Nombre: " + tbNombre.Text);
+                            writer.WriteLine("Fecha: " + tbFecha.Text);
+                            writer.WriteLine("Edad: " + tbEdad.Text);
+                            writer.WriteLine("ID: " + tbId.Text);
+                            writer.WriteLine("Puesto " + tbCarrera.Text);
+                            writer.WriteLine("Área: " + tbArea.Text);
+                            writer.WriteLine("Sueldo:" + tbSueldo.Text);
+                        }
+                        else
+                        {
+                            writer.WriteLine("Nombre: " + tbNombre.Text);
+                            writer.WriteLine("Fecha: " + tbFecha.Text);
+                            writer.WriteLine("Edad: " + tbEdad.Text);
+                        }
+                    }
+
+                    // Muestra un MessageBox de éxito indicando que los datos han sido guardados
+                    MessageBox.Show("Los datos han sido guardados.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    // MessageBox de error
+                    MessageBox.Show("Ocurrió un error al guardar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            */
             }
         }
 
@@ -233,7 +283,7 @@ namespace persona_herencia
                 docente.Edad = tbEdad.Text;
                 docente.Id = tbId.Text;
                 docente.Materia = tbCarrera.Text;
-                docente.Area = tbArea.Text;
+                docente.Materia = tbCarrera.Text;
                 docente.Sueldo = tbSueldo.Text;
 
                 // Muestra información del docente
