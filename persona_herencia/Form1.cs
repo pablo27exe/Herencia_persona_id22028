@@ -43,6 +43,10 @@ namespace persona_herencia
             lCarrera.Visible = false;
             lSemestre.Visible = false;
             lMateria.Visible = false;
+
+            //Colocar imagen de empleado
+            string rutaImagen = "C://Users//arm00//source//repos//pablo27exe//Herencia_persona_id22028//persona_herencia//imagenes//Pablopelon.jpg";
+            pictureBox1.BackgroundImage = Image.FromFile(rutaImagen);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -117,6 +121,9 @@ namespace persona_herencia
             lArea.Visible = false;
             lSueldo.Visible = false;
             tbSueldo.Visible = false;
+
+            string rutaImagen = "C://Users//arm00//source//repos//pablo27exe//Herencia_persona_id22028//persona_herencia//imagenes//Pablotraje.jpg";
+            pictureBox1.BackgroundImage = Image.FromFile(rutaImagen);
         }
 
         private void docente_CheckedChanged(object sender, EventArgs e)
@@ -144,8 +151,12 @@ namespace persona_herencia
             lCarrera.Visible = false;
             lSemestre.Visible = false;
             tbArea.Visible = false;
+
+            string rutaImagen = "C://Users//arm00//source//repos//pablo27exe//Herencia_persona_id22028//persona_herencia//imagenes//Pablobigote.jpg";
+            pictureBox1.BackgroundImage = Image.FromFile(rutaImagen);
         }
-        private void guardar_Click(object sender, EventArgs e)
+
+         private void guardar_Click(object sender, EventArgs e)
         {
             // Verifica si algún TextBox está vacío
             if (string.IsNullOrEmpty(tbNombre.Text) ||
@@ -161,22 +172,28 @@ namespace persona_herencia
             }
             else
             {
-            /*
+
                 try
                 {
-                    using (StreamWriter writer = new StreamWriter("datos_guardados.txt"))
+                    string filename = @"C:\Users\arm00\source\repos\pablo27exe\Herencia_persona_id22028\persona_herencia\registros\datos.txt";
+                    StreamWriter writer = File.AppendText(filename);
+
                     {
                         if (alumno.Checked)
                         {
+                            writer.WriteLine("Datos del alumno.");
                             writer.WriteLine("Nombre: " + tbNombre.Text);
                             writer.WriteLine("Fecha: " + tbFecha.Text);
                             writer.WriteLine("Edad: " + tbEdad.Text);
                             writer.WriteLine("Matricula: " + tbId.Text);
                             writer.WriteLine("Carrera: " + tbCarrera.Text);
-                            writer.WriteLine("Semestre" + tbArea.Text);
+                            writer.WriteLine("Semestre: " + tbArea.Text);
+                            writer.WriteLine(" ");
+                            writer.Close();
                         }
                         else if (docente.Checked)
                         {
+                            writer.WriteLine("Datos del docente.");
                             writer.WriteLine("Nombre: " + tbNombre.Text);
                             writer.WriteLine("Fecha: " + tbFecha.Text);
                             writer.WriteLine("Edad: " + tbEdad.Text);
@@ -184,9 +201,12 @@ namespace persona_herencia
                             writer.WriteLine("Materia " + tbCarrera.Text);
                             writer.WriteLine("Área: " + tbArea.Text);
                             writer.WriteLine("Sueldo:" + tbSueldo.Text);
+                            writer.WriteLine(" ");
+                            writer.Close();
                         }
                         else if (empleado.Checked)
                         {
+                            writer.WriteLine("Datos del empleado.");
                             writer.WriteLine("Nombre: " + tbNombre.Text);
                             writer.WriteLine("Fecha: " + tbFecha.Text);
                             writer.WriteLine("Edad: " + tbEdad.Text);
@@ -194,12 +214,16 @@ namespace persona_herencia
                             writer.WriteLine("Puesto " + tbCarrera.Text);
                             writer.WriteLine("Área: " + tbArea.Text);
                             writer.WriteLine("Sueldo:" + tbSueldo.Text);
+                            writer.WriteLine(" ");
+                            writer.Close();
                         }
                         else
                         {
                             writer.WriteLine("Nombre: " + tbNombre.Text);
                             writer.WriteLine("Fecha: " + tbFecha.Text);
                             writer.WriteLine("Edad: " + tbEdad.Text);
+                            writer.WriteLine(" ");
+                            writer.Close();
                         }
                     }
 
@@ -211,10 +235,9 @@ namespace persona_herencia
                     // MessageBox de error
                     MessageBox.Show("Ocurrió un error al guardar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            */
+
             }
         }
-
         private void tbNombre_TextChanged(object sender, EventArgs e)
         {
 
@@ -347,6 +370,11 @@ namespace persona_herencia
 
             // Mostrar el mensaje en un MessageBox
             MessageBox.Show(mensaje.ToString(), "Información de Persona", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
