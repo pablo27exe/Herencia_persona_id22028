@@ -1,0 +1,28 @@
+Nombre: pablo
+Fecha: 27 04 04
+Edad: 19
+ID: 1304
+Materia redes
+Área: 
+Sueldo:100
+Nombre: pablo
+Fecha: 27 04 04
+Edad: 19
+Matricula: 1304
+Carrera: software
+Semestre4to
+Nombre: pablo
+Fecha: 27 04 04
+Edad: 19
+ID: 1304
+Materia software
+Área: 4to
+Sueldo:100
+Datos del alumno.
+Nombre: pablo
+Fecha: 270404
+Edad: 19
+Matricula: id22028
+Carrera: software
+Semestre: 4to
+ 
