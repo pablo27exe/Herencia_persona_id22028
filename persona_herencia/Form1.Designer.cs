@@ -64,12 +64,15 @@ namespace persona_herencia
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(74, 26);
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(42, 29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 200);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // groupBox1
             // 
@@ -290,7 +293,6 @@ namespace persona_herencia
             this.tbEdad.Name = "tbEdad";
             this.tbEdad.Size = new System.Drawing.Size(132, 22);
             this.tbEdad.TabIndex = 23;
-            this.tbEdad.Visible = false;
             this.tbEdad.TextChanged += new System.EventHandler(this.tbEdad_TextChanged);
             // 
             // tbFecha
@@ -300,7 +302,6 @@ namespace persona_herencia
             this.tbFecha.Name = "tbFecha";
             this.tbFecha.Size = new System.Drawing.Size(132, 22);
             this.tbFecha.TabIndex = 22;
-            this.tbFecha.Visible = false;
             this.tbFecha.TextChanged += new System.EventHandler(this.tbFecha_TextChanged);
             // 
             // tbNombre
@@ -310,7 +311,6 @@ namespace persona_herencia
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(132, 22);
             this.tbNombre.TabIndex = 21;
-            this.tbNombre.Visible = false;
             this.tbNombre.TextChanged += new System.EventHandler(this.tbNombre_TextChanged);
             // 
             // lSueldo
@@ -356,7 +356,6 @@ namespace persona_herencia
             this.lFecNac.Size = new System.Drawing.Size(160, 16);
             this.lFecNac.TabIndex = 16;
             this.lFecNac.Text = "FECHA DE NACIMIENTO";
-            this.lFecNac.Visible = false;
             this.lFecNac.Click += new System.EventHandler(this.label3_Click);
             // 
             // lNombre
@@ -368,7 +367,6 @@ namespace persona_herencia
             this.lNombre.Size = new System.Drawing.Size(143, 16);
             this.lNombre.TabIndex = 15;
             this.lNombre.Text = "NOMBRE COMPLETO";
-            this.lNombre.Visible = false;
             this.lNombre.Click += new System.EventHandler(this.label2_Click);
             // 
             // lAge
@@ -380,7 +378,6 @@ namespace persona_herencia
             this.lAge.Size = new System.Drawing.Size(45, 16);
             this.lAge.TabIndex = 14;
             this.lAge.Text = "EDAD";
-            this.lAge.Visible = false;
             this.lAge.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
@@ -399,6 +396,7 @@ namespace persona_herencia
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
